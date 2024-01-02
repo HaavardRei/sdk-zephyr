@@ -348,6 +348,66 @@ struct bt_mesh_elem {
  * @}
  */
 
+/**
+ * @name Metadata identifiers from the BT SIG Assigned Numbers document
+ * @{
+ */
+/** Health Tests Information */
+#define BT_MESH_HEALTH_TEST_INFO_METADATA_ID       0x0000
+/** Sensor Properties */
+#define BT_MESH_SENSOR_PROP_METADATA_ID            0x0001
+/** Light Purpose */
+#define BT_MESH_LIGHT_PURPOSE_METADATA_ID          0x0002
+/** Light Lightness Range */
+#define BT_MESH_LIGHT_LIGHTNESS_RANGE_METADATA_ID  0x0003
+/** Light CTL Temperature Range */
+#define BT_MESH_LIGHT_CTL_TEMP_RANGE_METADATA_ID   0x0004
+/** Light HSL Hue Range */
+#define BT_MESH_LIGHT_HSL_HUE_RANGE_METADATA_ID    0x0005
+/** Light HSL Saturation Range */
+#define BT_MESH_LIGHT_HSL_SAT_RANGE_METADATA_ID    0x0006
+/** Clock Accuracy */
+#define BT_MESH_CLOCK_ACCURACY_METADATA_ID         0x0007
+/** Timekeeping Reserve */
+#define BT_MESH_TIMEKEEPING_RESERVE_METADATA_ID    0x0008
+/**
+ * @}
+ */
+
+/**
+ * @name Light Purpose identifiers from the BT SIG Assigned Numbers document
+ * @{
+ */
+#define BT_MESH_LIGHT_PURPOSE_UPLIGHT              0x0000
+#define BT_MESH_LIGHT_PURPOSE_UPLIGHT_LEFT         0x0001
+#define BT_MESH_LIGHT_PURPOSE_UPLIGHT_CENTER       0x0002
+#define BT_MESH_LIGHT_PURPOSE_UPLIGHT_RIGHT        0x0003
+#define BT_MESH_LIGHT_PURPOSE_DOWNLIGHT            0x0004
+#define BT_MESH_LIGHT_PURPOSE_DOWNLIGHT_LEFT       0x0005
+#define BT_MESH_LIGHT_PURPOSE_DOWNLIGHT_CENTER     0x0006
+#define BT_MESH_LIGHT_PURPOSE_DOWNLIGHT_RIGHT      0x0007
+#define BT_MESH_LIGHT_PURPOSE_INSIDE               0x0008
+#define BT_MESH_LIGHT_PURPOSE_OUTSIDE              0x0009
+#define BT_MESH_LIGHT_PURPOSE_BACKLIGHT            0x000A
+#define BT_MESH_LIGHT_PURPOSE_FLOODLIGHT           0x000B
+#define BT_MESH_LIGHT_PURPOSE_TASKLIGHT            0x000C
+#define BT_MESH_LIGHT_PURPOSE_TASKLIGHT_LEFT       0x000D
+#define BT_MESH_LIGHT_PURPOSE_TASKLIGHT_CENTER     0x000E
+#define BT_MESH_LIGHT_PURPOSE_TASKLIGHT_RIGHT      0x000F
+#define BT_MESH_LIGHT_PURPOSE_WARMING_LIGHT        0x0010
+#define BT_MESH_LIGHT_PURPOSE_EMERGENCY_LIGHT      0x0011
+#define BT_MESH_LIGHT_PURPOSE_NIGHT_LIGHT          0x0012
+#define BT_MESH_LIGHT_PURPOSE_INDICATOR_LIGHT      0x0013
+#define BT_MESH_LIGHT_PURPOSE_UNDERCABINET_LIGHT   0x0014
+#define BT_MESH_LIGHT_PURPOSE_ACCENT_LIGHT         0x0015
+#define BT_MESH_LIGHT_PURPOSE_STRIP_LIGHT          0x0016
+#define BT_MESH_LIGHT_PURPOSE_TROFFER_LIGHT        0x0017
+#define BT_MESH_LIGHT_PURPOSE_HIGH_BAY_LIGHT       0x0018
+#define BT_MESH_LIGHT_PURPOSE_WALL_PACK_LIGHT      0x0019
+/**
+ * @}
+ */
+
 /** Model opcode handler. */
 struct bt_mesh_model_op {
 	/** OpCode encoded using the BT_MESH_MODEL_OP_* macros */

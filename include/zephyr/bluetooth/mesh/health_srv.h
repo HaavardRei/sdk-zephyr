@@ -184,12 +184,6 @@ struct bt_mesh_health_srv {
 			 pub, srv, &bt_mesh_health_srv_cb)
 #endif
 
-/**
- *
- *  Health Test Information Metadata ID.
- */
-#define BT_MESH_HEALTH_TEST_INFO_METADATA_ID 0x0001
-
 #define BT_MESH_HEALTH_TEST_INFO_METADATA(tests)                               \
 	{                                                                      \
 		.len = ARRAY_SIZE(tests),                                      \
