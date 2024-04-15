@@ -12,7 +12,11 @@
 #include "net.h"
 #include "transport.h"
 
+#if defined CONFIG_SOC_FLASH_NRF_RRAM
+#define WRITE_BLOCK_SIZE DT_PROP(DT_INST(0, soc_nv_flash), write_block_size)
+#else
 #define WRITE_BLOCK_SIZE 4
+#endif
 
 #define FLASH_IO(_io) CONTAINER_OF(_io, struct bt_mesh_blob_io_flash, io)
 
@@ -110,6 +114,12 @@ static int wr_chunk(const struct bt_mesh_blob_io *io,
 		    const struct bt_mesh_blob_chunk *chunk)
 {
 	struct bt_mesh_blob_io_flash *flash = FLASH_IO(io);
+
+#if defined CONFIG_SOC_FLASH_NRF_RRAM
+	return flash_area_write(flash->area,
+				flash->offset + block->offset + chunk->offset,
+				chunk->data, chunk->size);
+#else
 	uint8_t buf[ROUND_UP(BLOB_CHUNK_SIZE_MAX(BT_MESH_RX_SDU_MAX),
 			  WRITE_BLOCK_SIZE)];
 	off_t area_offset = flash->offset + block->offset + chunk->offset;
@@ -128,6 +138,7 @@ static int wr_chunk(const struct bt_mesh_blob_io *io,
 	return flash_area_write(flash->area,
 				ROUND_DOWN(area_offset, WRITE_BLOCK_SIZE),
 				buf, i);
+#endif
 }
 
 int bt_mesh_blob_io_flash_init(struct bt_mesh_blob_io_flash *flash,
